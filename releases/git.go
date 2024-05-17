@@ -53,6 +53,15 @@ func LoadMetadata() GitMetadata {
 		log.Println("Commit:", gitMetadata.Commit)
 	})
 
+	repositoryOwner, ok := os.LookupEnv("GITHUB_REPOSITORY_OWNER")
+	if !ok {
+		repositoryOwner = "getporter"
+	}
+
+	if repositoryOwner == "Homebrew" {
+		return gitMetadata
+	}
+
 	// Save the metadata as environment variables to use later in the CI pipeline
 	p, _ := ci.DetectBuildProvider()
 	mgx.Must(p.SetEnv("PERMALINK", gitMetadata.Permalink))

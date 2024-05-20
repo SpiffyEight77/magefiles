@@ -27,4 +27,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.0 // indirect
 )
 
-replace get.porter.sh/magefiles => github.com/SpiffyEight77/magefiles v0.6.7
+replace get.porter.sh/magefiles => github.com/SpiffyEight77/magefiles v0.6.8
